@@ -87,8 +87,5 @@ public class PlayerController
         else
             PlayerState = PlayerState.InDark;
     }
-    private void onKeysPickedUp(int keys)
-    {
-        KeysEquipped = keys;
-    }
+    private void onKeysPickedUp(int keys) => KeysEquipped = keys;
 }
