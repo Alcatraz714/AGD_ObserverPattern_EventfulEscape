@@ -24,8 +24,13 @@ public class GameUIView : MonoBehaviour
         tryAgainButton.onClick.AddListener(onTryAgainButtonClicked);
         quitButton.onClick.AddListener(onQuitButtonClicked);
         EventService.Instance.OnKeyPickedUp.AddListener(updateKeyText);
+        EventService.Instance.OnLightsOffByGhostEvent.AddListener(setRedVignette);
     }
-    private void OnDisable() => EventService.Instance.OnKeyPickedUp.RemoveListener(updateKeyText);
+    private void OnDisable()  
+    {
+        EventService.Instance.OnKeyPickedUp.RemoveListener(updateKeyText);
+        EventService.Instance.OnLightsOffByGhostEvent.RemoveListener(setRedVignette);
+    }
 
     public void UpdateInsanity(float playerSanity) => insanityImage.rectTransform.localScale = new Vector3(1, playerSanity, 1);
 
@@ -34,7 +39,7 @@ public class GameUIView : MonoBehaviour
     private void onTryAgainButtonClicked() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
 
-    //Assignment - Call this method as a lister of LightsOffByGhostEvent
+    //Assignment - Call this method as a listener of LightsOffByGhostEvent
     private void setRedVignette()
     {
         redVignette.enabled = true;
