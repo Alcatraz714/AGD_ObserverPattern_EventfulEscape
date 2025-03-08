@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor.MPE;
 
 public class GameUIView : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class GameUIView : MonoBehaviour
         EventService.Instance.OnPlayerDeathEvent.AddListener(OnPlayerDeath);
         EventService.Instance.OnRatRushEvent.AddListener(SetRedVignette);
         EventService.Instance.OnSkullShowerEvent.AddListener(SetRedVignette);
+        EventService.Instance.OnLightsFlickerByGhostEvent.AddListener(SetRedVignetteFloat);
 
         tryAgainButton.onClick.AddListener(OnTryAgainButtonClicked);
         quitButton.onClick.AddListener(OnQuitButtonClicked);
@@ -42,6 +44,7 @@ public class GameUIView : MonoBehaviour
         EventService.Instance.OnPlayerDeathEvent.RemoveListener(OnPlayerDeath);
         EventService.Instance.OnRatRushEvent.RemoveListener(SetRedVignette);
         EventService.Instance.OnSkullShowerEvent.RemoveListener(SetRedVignette);
+        EventService.Instance.OnLightsFlickerByGhostEvent.RemoveListener(SetRedVignetteFloat);
     }
 
     public void UpdateInsanity(float playerSanity) => insanityImage.rectTransform.localScale = new Vector3(1, playerSanity, 1);
@@ -50,6 +53,13 @@ public class GameUIView : MonoBehaviour
     private void OnTryAgainButtonClicked() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     private void SetRedVignette()
+    {
+        redVignette.enabled = true;
+        redVignette.canvasRenderer.SetAlpha(0.5f);
+        redVignette.CrossFadeAlpha(0, 5, false);
+    }
+
+    private void SetRedVignetteFloat(float random)
     {
         redVignette.enabled = true;
         redVignette.canvasRenderer.SetAlpha(0.5f);

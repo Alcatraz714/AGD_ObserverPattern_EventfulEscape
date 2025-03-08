@@ -2486,7 +2486,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8565971732994571938}
   - component: {fileID: 8841995900069191955}
-  - component: {fileID: 7786702764551669605}
+  - component: {fileID: 5853382154639580074}
   m_Layer: 0
   m_Name: LightsOffEventTrigger-Bathroom
   m_TagString: Untagged
@@ -2522,7 +2522,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7786702764551669605
+--- !u!114 &5853382154639580074
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2531,11 +2531,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1301186513849907664}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b63f02da43eed17458d80b824fc7f1a2, type: 3}
+  m_Script: {fileID: 11500000, guid: 950be4c2d2629b4469e9af896996d402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keysRequiredToTrigger: 1
-  soundToPlay: 4
+  keysRequiredToTrigger: 4
+  soundToPlay: 7
 --- !u!1 &1367413446329851996
 GameObject:
   m_ObjectHideFlags: 0
@@ -4234,6 +4234,8 @@ MonoBehaviour:
   - {fileID: 7220168615826739779}
   - {fileID: 2810982331033986029}
   soundType: 1
+  flickerDuration: 2
+  flickerInterval: 0.1
 --- !u!1 &2192717817496870479
 GameObject:
   m_ObjectHideFlags: 0
@@ -5061,7 +5063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swingAngle: 90
-  keysRequiredToOpen: 1
+  keysRequiredToOpen: 3
 --- !u!1 &2725329593570704139
 GameObject:
   m_ObjectHideFlags: 0
@@ -7803,6 +7805,8 @@ MonoBehaviour:
   - {fileID: 8410985325005616051}
   - {fileID: 4112238268306415252}
   soundType: 1
+  flickerDuration: 2
+  flickerInterval: 0.1
 --- !u!1 &3837781230560376573
 GameObject:
   m_ObjectHideFlags: 0
@@ -21343,6 +21347,8 @@ MonoBehaviour:
   - {fileID: 6043709224641305141}
   - {fileID: 8741519329708946749}
   soundType: 1
+  flickerDuration: 2
+  flickerInterval: 0.1
 --- !u!1 &8410985324104198225
 GameObject:
   m_ObjectHideFlags: 0
@@ -23448,6 +23454,8 @@ MonoBehaviour:
   - {fileID: 6959943621664186074}
   - {fileID: 5334112040210001905}
   soundType: 1
+  flickerDuration: 2
+  flickerInterval: 0.1
 --- !u!1 &8783489059532748708
 GameObject:
   m_ObjectHideFlags: 0
@@ -23867,6 +23875,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1929311975447413061}
   - component: {fileID: 2787251750459062848}
+  - component: {fileID: 444403216803699396}
   m_Layer: 0
   m_Name: PaintingRotatingEventTrigger-Bathroom
   m_TagString: Untagged
@@ -23882,7 +23891,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8805906835938277747}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.571, z: 0}
+  m_LocalPosition: {x: -0.896, y: 0.571, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23902,6 +23911,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &444403216803699396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8805906835938277747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ad8cbfeda803da458400103340f81a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keysRequiredToTrigger: 3
+  soundToPlay: 2
+  targetObject: {fileID: 1962464724656345170}
+  rotationAngle: 15
+  rotationDuration: 1
 --- !u!1 &8823716498535019257
 GameObject:
   m_ObjectHideFlags: 0

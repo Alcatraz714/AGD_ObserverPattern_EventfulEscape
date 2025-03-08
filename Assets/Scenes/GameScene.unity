@@ -1230,7 +1230,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1301186513849907664, guid: eae7bae8fd7cbc64dbfc422a435cafad, type: 3}
       propertyPath: m_Name
-      value: LightsOffEventTrigger-Bathroom
+      value: LightsFlickerEventTrigger-Bathroom
       objectReference: {fileID: 0}
     - target: {fileID: 1929311975447413061, guid: eae7bae8fd7cbc64dbfc422a435cafad, type: 3}
       propertyPath: m_RootOrder
@@ -1308,10 +1308,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6729102009355832209, guid: eae7bae8fd7cbc64dbfc422a435cafad, type: 3}
-      propertyPath: keysRequiredToOpen
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 7761143193083999901, guid: eae7bae8fd7cbc64dbfc422a435cafad, type: 3}
       propertyPath: lightsources.Array.size
       value: 3
@@ -1324,14 +1320,6 @@ PrefabInstance:
       propertyPath: lightsources.Array.data[2]
       value: 
       objectReference: {fileID: 1816853422}
-    - target: {fileID: 7786702764551669605, guid: eae7bae8fd7cbc64dbfc422a435cafad, type: 3}
-      propertyPath: soundToPlay
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7786702764551669605, guid: eae7bae8fd7cbc64dbfc422a435cafad, type: 3}
-      propertyPath: keysRequiredToTrigger
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8090694453975587124, guid: eae7bae8fd7cbc64dbfc422a435cafad, type: 3}
       propertyPath: m_Name
       value: House - Exapansion
@@ -1339,6 +1327,26 @@ PrefabInstance:
     - target: {fileID: 8410985323525627662, guid: eae7bae8fd7cbc64dbfc422a435cafad, type: 3}
       propertyPath: keysRequiredToOpen
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8565971732994571938, guid: eae7bae8fd7cbc64dbfc422a435cafad, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.978
+      objectReference: {fileID: 0}
+    - target: {fileID: 8565971732994571938, guid: eae7bae8fd7cbc64dbfc422a435cafad, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.834
+      objectReference: {fileID: 0}
+    - target: {fileID: 8565971732994571938, guid: eae7bae8fd7cbc64dbfc422a435cafad, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8565971732994571938, guid: eae7bae8fd7cbc64dbfc422a435cafad, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8565971732994571938, guid: eae7bae8fd7cbc64dbfc422a435cafad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 8841995900069191955, guid: eae7bae8fd7cbc64dbfc422a435cafad, type: 3}
       propertyPath: m_Size.x
@@ -1358,33 +1366,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eae7bae8fd7cbc64dbfc422a435cafad, type: 3}
---- !u!1 &901418871 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8805906835938277747, guid: eae7bae8fd7cbc64dbfc422a435cafad, type: 3}
-  m_PrefabInstance: {fileID: 901418870}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &901418872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 901418871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ad8cbfeda803da458400103340f81a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keysRequiredToTrigger: 3
-  soundToPlay: 2
-  targetObject: {fileID: 901418873}
-  rotationAngle: 15
-  rotationDuration: 1
---- !u!4 &901418873 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1962464724656345170, guid: eae7bae8fd7cbc64dbfc422a435cafad, type: 3}
-  m_PrefabInstance: {fileID: 901418870}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1027258372
 GameObject:
   m_ObjectHideFlags: 0
