@@ -45,7 +45,7 @@ public class GameUIView : MonoBehaviour
     }
 
     public void UpdateInsanity(float playerSanity) => insanityImage.rectTransform.localScale = new Vector3(1, playerSanity, 1);
-    private void OnKeyEquipped(int keys) => keysFoundText.SetText($"Keys Found: {keys}/3");
+    private void OnKeyEquipped(int keys) => keysFoundText.SetText($"Keys Found: {keys}/4");
     private void OnQuitButtonClicked() => Application.Quit();
     private void OnTryAgainButtonClicked() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
