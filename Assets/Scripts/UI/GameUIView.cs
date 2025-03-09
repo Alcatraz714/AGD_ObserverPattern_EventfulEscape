@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 using UnityEditor.MPE;
 
 public class GameUIView : MonoBehaviour
@@ -20,16 +21,24 @@ public class GameUIView : MonoBehaviour
     [SerializeField] Button tryAgainButton;
     [SerializeField] Button quitButton;
 
+    [Header("Game Achievements")]
+    [SerializeField] GameObject achievementSanity;
+    [SerializeField] GameObject achievementKeys;
+    [SerializeField] GameObject achievementEscape;
+
     private void OnEnable()
     {
         EventService.Instance.OnKeyPickedUp.AddListener(OnKeyEquipped);
+        EventService.Instance.OnKeyPickedUp.AddListener(ShowAchievementKeys);
         EventService.Instance.OnLightsOffByGhostEvent.AddListener(SetRedVignette);
         EventService.Instance.OnPlayerEscapedEvent.AddListener(OnPlayerEscaped);
+        EventService.Instance.OnPlayerEscapedEvent.AddListener(ShowAchievementEscape);
         EventService.Instance.OnPlayerDeathEvent.AddListener(SetRedVignette);
         EventService.Instance.OnPlayerDeathEvent.AddListener(OnPlayerDeath);
         EventService.Instance.OnRatRushEvent.AddListener(SetRedVignette);
         EventService.Instance.OnSkullShowerEvent.AddListener(SetRedVignette);
         EventService.Instance.OnLightsFlickerByGhostEvent.AddListener(SetRedVignetteFloat);
+        EventService.Instance.OnPotionDrank.AddListener(ShowAchievementSanity);
 
         tryAgainButton.onClick.AddListener(OnTryAgainButtonClicked);
         quitButton.onClick.AddListener(OnQuitButtonClicked);
@@ -38,13 +47,16 @@ public class GameUIView : MonoBehaviour
     private void OnDisable()
     {
         EventService.Instance.OnKeyPickedUp.RemoveListener(OnKeyEquipped);
+        EventService.Instance.OnKeyPickedUp.RemoveListener(ShowAchievementKeys);
         EventService.Instance.OnLightsOffByGhostEvent.RemoveListener(SetRedVignette);
         EventService.Instance.OnPlayerEscapedEvent.RemoveListener(OnPlayerEscaped);
+        EventService.Instance.OnPlayerEscapedEvent.RemoveListener(ShowAchievementEscape);
         EventService.Instance.OnPlayerDeathEvent.RemoveListener(SetRedVignette);
         EventService.Instance.OnPlayerDeathEvent.RemoveListener(OnPlayerDeath);
         EventService.Instance.OnRatRushEvent.RemoveListener(SetRedVignette);
         EventService.Instance.OnSkullShowerEvent.RemoveListener(SetRedVignette);
         EventService.Instance.OnLightsFlickerByGhostEvent.RemoveListener(SetRedVignetteFloat);
+        EventService.Instance.OnPotionDrank.RemoveListener(ShowAchievementSanity);
     }
 
     public void UpdateInsanity(float playerSanity) => insanityImage.rectTransform.localScale = new Vector3(1, playerSanity, 1);
@@ -64,6 +76,33 @@ public class GameUIView : MonoBehaviour
         redVignette.enabled = true;
         redVignette.canvasRenderer.SetAlpha(0.5f);
         redVignette.CrossFadeAlpha(0, 5, false);
+    }
+
+    private void ShowAchievementSanity(int random)
+    {
+        achievementSanity.SetActive(true);
+        StartCoroutine(HideAfterDelay(2f, achievementSanity));
+    }
+
+    private void ShowAchievementKeys(int keys)
+    {
+        if(keys == 4)
+        {
+            achievementKeys.SetActive(true);
+            StartCoroutine(HideAfterDelay(2f, achievementKeys));
+        }
+    }
+
+    private void ShowAchievementEscape()
+    {
+        achievementEscape.SetActive(true);
+        StartCoroutine(HideAfterDelay(2f, achievementEscape));
+    }
+
+    private IEnumerator HideAfterDelay(float delay, GameObject uiTurnOff)
+    {
+        yield return new WaitForSeconds(delay);
+        uiTurnOff.SetActive(false);
     }
 
     private void OnPlayerDeath()
